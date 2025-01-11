@@ -3,12 +3,12 @@ const router = express.Router();
 const { OpenAI } = require('openai');
 const catchAsyncError = require('../middlewares/catchAsyncError');
 
-// Initialize OpenAI API client
+
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-// Route to list available models
+
 router.get('/models', catchAsyncError(async (req, res) => {
   try {
     const response = await openai.models.list();
